@@ -1,0 +1,61 @@
+/* 삼각형 포인터 */
+.roulette-pointer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid red; /* border-bottom을 border-top으로 변경 */
+    z-index: 3;
+}
+
+/* 나머지 스타일은 동일하게 유지 */
+.roulette-circle {
+    position: relative;
+    width: 90vmin;
+    height: 90vmin;
+    border-radius: 50%;
+    border: 4px solid #ddd;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease-out;
+    margin-top: 50px;
+}
+
+.roulette-text {
+    position: absolute;
+    font-size: 1.5rem;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    transform-origin: center bottom;
+    width: 100px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.spin-button {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    background-color: white;
+    color: #3b82f6;
+    border: 1px solid #d1d5db;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 4;
+}
