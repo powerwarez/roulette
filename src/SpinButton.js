@@ -9,7 +9,6 @@ function SpinButton({ prizes, rotation, setRotation, onPrizeSelected, prizeRatio
 
     // 상품이 1개인 경우 바로 선택
     if (prizes.length === 1 || prizeRatios.length === 1) {
-      const selectedPrize = prizeRatios[0];
       const extraRotations = 5 * 360;
       const targetRotation = 360; // 한 바퀴 돌고 0도에 정확히 멈추도록
 
@@ -67,12 +66,14 @@ function SpinButton({ prizes, rotation, setRotation, onPrizeSelected, prizeRatio
           const endAngle = (prize.endAngle + finalRotation) % 360;
           
           if (startAngle > endAngle) {
-            if (0 >= 0 || 0 <= endAngle) {
+            // 섹터가 0도를 걸쳐 있는 경우
+            if (endAngle >= 0) {
               selectedPrizeName = prize.name;
               break;
             }
           } else {
-            if (0 >= startAngle && 0 <= endAngle) {
+            // 일반적인 경우
+            if (startAngle <= 0 && 0 <= endAngle) {
               selectedPrizeName = prize.name;
               break;
             }
